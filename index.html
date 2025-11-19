@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Tabuada 2 a 5</title>
+  <title>Tabuada 1 a 10</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -64,7 +64,7 @@
 <body>
   <div class="placar">🏆 Pontos: <span id="pontos">0</span></div>
 
-  <h1>Treino de Tabuada (2 a 5) da Manuella</h1>
+  <h1>Treino de Tabuada (1 a 10)</h1>
   <div class="card">
     <h1 id="pergunta">Clique em "Nova Pergunta" para começar</h1>
     <p>⏱ Tempo: <span id="tempo">0</span> segundos</p>
@@ -92,8 +92,8 @@
     let pontos = 0;
 
     function gerarPergunta() {
-      const numero = Math.floor(Math.random() * 4) + 2; // 2 a 5
-      const multiplicador = Math.floor(Math.random() * 10) + 1; // 1 a 10
+      const numero = Math.floor(Math.random() * 10) + 1;
+      const multiplicador = Math.floor(Math.random() * 10) + 1;
       resultadoCorreto = numero * multiplicador;
 
       perguntaEl.textContent = `${numero} x ${multiplicador} = ?`;
@@ -102,7 +102,6 @@
       respostaInput.disabled = false;
       respostaInput.focus();
 
-      // Reiniciar cronômetro
       tempo = 0;
       tempoEl.textContent = tempo;
       if (intervalo) clearInterval(intervalo);
@@ -135,7 +134,6 @@
     }
 
     function resetarJogo() {
-      // Zerar variáveis
       pontos = 0;
       pontosEl.textContent = pontos;
       tempo = 0;
@@ -143,10 +141,8 @@
       resultadoCorreto = null;
       rodando = false;
 
-      // Limpar intervalos
       if (intervalo) clearInterval(intervalo);
 
-      // Resetar UI
       perguntaEl.textContent = "Clique em \"Nova Pergunta\" para começar";
       resultadoEl.textContent = "";
       respostaInput.value = "";
